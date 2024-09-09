@@ -10,7 +10,155 @@
     <div class="container">
         <header>
             <h1>Product Inventory</h1>
-            <button id="add-product-btn" class="add-button">+</button>
+            
+            <div class="search-bar">
+                <button id="add-product-btn" class="add-button">+</button>
+
+                <select id="search-type" class="search-dropdown">
+                    <option value="name">Name</option>
+                    <option value="type">Type</option>
+                </select>
+
+                <input type="text" id="search-query" class="search-input" placeholder="Enter search term...">
+                <select id="search-type-query" class="search-input search-dropdown" style="display: none;">
+                    <!-- Sorted Entries by Company, Sega Ontop!!! -->
+                    
+                    <!-- Nintendo -->
+                    <option value="Nintendo NES Game">Nintendo NES Game</option>
+                    <option value="Nintendo NES Console">Nintendo NES Console</option>
+                    <option value="Nintendo NES Controller">Nintendo NES Controller</option>
+                    <option value="Nintendo NES Devkit">Nintendo NES Devkit</option>
+
+                    <option value="Nintendo Gameboy Game">Nintendo Gameboy Game</option>
+                    <option value="Nintendo Gameboy Console">Nintendo Gameboy Console</option>
+                    <option value="Nintendo Gameboy Controller">Nintendo Gameboy Controller</option>
+                    <option value="Nintendo Gameboy Devkit">Nintendo Gameboy Devkit</option>
+
+                    <option value="Nintendo SNES Game">Nintendo SNES Game</option>
+                    <option value="Nintendo SNES Console">Nintendo SNES Console</option>
+                    <option value="Nintendo SNES Controller">Nintendo SNES Controller</option>
+                    <option value="Nintendo SNES Devkit">Nintendo SNES Devkit</option>
+
+                    <option value="Nintendo VB Game">Nintendo Virtual Boy Game</option>
+                    <option value="Nintendo VB Console">Nintendo Virtual Boy Console</option>
+                    <option value="Nintendo VB Controller">Nintendo Virtual Boy Controller</option>
+                    <option value="Nintendo VB Devkit">Nintendo Virtual Boy Devkit</option>
+
+                    <option value="Nintendo N64 Game">Nintendo 64 Game</option>
+                    <option value="Nintendo N64 Console">Nintendo 64 Console</option>
+                    <option value="Nintendo N64 Controller">Nintendo 64 Controller</option>
+                    <option value="Nintendo N64 Devkit">Nintendo 64 Devkit</option>
+
+                    <option value="Nintendo GBC Game">Nintendo Game Boy Color Game</option>
+                    <option value="Nintendo GBC Console">Nintendo Game Boy Color Console</option>
+                    <option value="Nintendo GBC Controller">Nintendo Game Boy Color Controller</option>
+                    <option value="Nintendo GBC Devkit">Nintendo Game Boy Color Devkit</option>
+
+                    <option value="Nintendo GBA Game">Nintendo Game Boy Advance Game</option>
+                    <option value="Nintendo GBA Console">Nintendo Game Boy Advance Console</option>
+                    <option value="Nintendo GBA Controller">Nintendo Game Boy Advance Controller</option>
+                    <option value="Nintendo GBA Devkit">Nintendo Game Boy Advance Devkit</option>
+
+                    <option value="Nintendo Gamecube Game">Nintendo GameCube Game</option>
+                    <option value="Nintendo Gamecube Console">Nintendo GameCube Console</option>
+                    <option value="Nintendo Gamecube Controller">Nintendo GameCube Controller</option>
+                    <option value="Nintendo Gamecube Devkit">Nintendo GameCube Devkit</option>
+
+                    <option value="Nintendo DS Game">Nintendo DS Game</option>
+                    <option value="Nintendo DS Console">Nintendo DS Console</option>
+                    <option value="Nintendo DS Controller">Nintendo DS Controller</option>
+                    <option value="Nintendo DS Devkit">Nintendo DS Devkit</option>
+
+                    <option value="Nintendo Wii Game">Nintendo Wii Game</option>
+                    <option value="Nintendo Wii Console">Nintendo Wii Console</option>
+                    <option value="Nintendo Wii Controller">Nintendo Wii Controller</option>
+                    <option value="Nintendo Wii Devkit">Nintendo Wii Devkit</option>
+
+                    <option value="Nintendo 3DS Game">Nintendo 3DS Game</option>
+                    <option value="Nintendo 3DS Console">Nintendo 3DS Console</option>
+                    <option value="Nintendo 3DS Controller">Nintendo 3DS Controller</option>
+                    <option value="Nintendo 3DS Devkit">Nintendo 3DS Devkit</option>
+
+                    <option value="Nintendo Wii U Game">Nintendo Wii U Game</option>
+                    <option value="Nintendo Wii U Console">Nintendo Wii U Console</option>
+                    <option value="Nintendo Wii U Controller">Nintendo Wii U Controller</option>
+                    <option value="Nintendo Wii U Devkit">Nintendo Wii U Devkit</option>
+
+                    <option value="Nintendo New 3DS Game">Nintendo New 3DS Game</option>
+                    <option value="Nintendo New 3DS Console">Nintendo New 3DS Console</option>
+                    <option value="Nintendo New 3DS Controller">Nintendo New 3DS Controller</option>
+                    <option value="Nintendo New 3DS Devkit">Nintendo New 3DS Devkit</option>
+
+                    <option value="Nintendo Switch Game">Nintendo Switch Game</option>
+                    <option value="Nintendo Switch Console">Nintendo Switch Console</option>
+                    <option value="Nintendo Switch Controller">Nintendo Switch Controller</option>
+                    <option value="Nintendo Switch Devkit">Nintendo Switch Devkit</option>
+
+                    <!-- Sony -->
+                    <option value="Sony Playstation 1 Game">Sony Playstation 1 Game</option>
+                    <option value="Sony Playstation 1 Console">Sony Playstation 1 Console</option>
+                    <option value="Sony Playstation 1 Controller">Sony Playstation 1 Controller</option>
+                    <option value="Sony Playstation 1 Devkit">Sony Playstation 1 Devkit</option>
+
+                    <option value="Sony Playstation 2 Game">Sony Playstation 2 Game</option>
+                    <option value="Sony Playstation 2 Console">Sony Playstation 2 Console</option>
+                    <option value="Sony Playstation 2 Controller">Sony Playstation 2 Controller</option>
+                    <option value="Sony Playstation 2 Devkit">Sony Playstation 2 Devkit</option>
+
+                    <option value="Sony Playstation 3 Game">Sony Playstation 3 Game</option>
+                    <option value="Sony Playstation 3 Console">Sony Playstation 3 Console</option>
+                    <option value="Sony Playstation 3 Controller">Sony Playstation 3 Controller</option>
+                    <option value="Sony Playstation 3 Devkit">Sony Playstation 3 Devkit</option>
+
+                    <option value="Sony Playstation 4 Game">Sony Playstation 4 Game</option>
+                    <option value="Sony Playstation 4 Console">Sony Playstation 4 Console</option>
+                    <option value="Sony Playstation 4 Controller">Sony Playstation 4 Controller</option>
+                    <option value="Sony Playstation 4 Devkit">Sony Playstation 4 Devkit</option>
+
+                    <option value="Sony Playstation 5 Game">Sony Playstation 5 Game</option>
+                    <option value="Sony Playstation 5 Console">Sony Playstation 5 Console</option>
+                    <option value="Sony Playstation 5 Controller">Sony Playstation 5 Controller</option>
+                    <option value="Sony Playstation 5 Devkit">Sony Playstation 5 Devkit</option>
+
+                    <!-- Microsoft -->
+                    <option value="XBOX Classic Game">XBOX Classic Game</option>
+                    <option value="XBOX Classic Console">XBOX Classic Console</option>
+                    <option value="XBOX Classic Controller">XBOX Classic Controller</option>
+                    <option value="XBOX Classic Devkit">XBOX Classic Devkit</option>
+
+                    <option value="XBOX 360 Game">XBOX 360 Game</option>
+                    <option value="XBOX 360 Console">XBOX 360 Console</option>
+                    <option value="XBOX 360 Controller">XBOX 360 Controller</option>
+                    <option value="XBOX 360 Devkit">XBOX 360 Devkit</option>
+
+                    <option value="XBOX One Game">XBOX One Game</option>
+                    <option value="XBOX One Console">XBOX One Console</option>
+                    <option value="XBOX One Controller">XBOX One Controller</option>
+                    <option value="XBOX One Devkit">XBOX One Devkit</option>
+
+                    <option value="XBOX Series Game">XBOX Series Game</option>
+                    <option value="XBOX Series Console">XBOX Series Console</option>
+                    <option value="XBOX Series Controller">XBOX Series Controller</option>
+                    <option value="XBOX Series Devkit">XBOX Series Devkit</option>
+
+                    <!-- Sega -->
+                    <option value="Sega Genesis Game">Sega Genesis Game</option>
+                    <option value="Sega Genesis Console">Sega Genesis Console</option>
+                    <option value="Sega Genesis Controller">Sega Genesis Controller</option>
+                    <option value="Sega Genesis Devkit">Sega Genesis Devkit</option>
+
+                    <option value="Sega Saturn Game">Sega Saturn Game</option>
+                    <option value="Sega Saturn Console">Sega Saturn Console</option>
+                    <option value="Sega Saturn Controller">Sega Saturn Controller</option>
+                    <option value="Sega Saturn Devkit">Sega Saturn Devkit</option>
+
+                    <option value="Sega Dreamcast Game">Sega Dreamcast Game</option>
+                    <option value="Sega Dreamcast Console">Sega Dreamcast Console</option>
+                    <option value="Sega Dreamcast Controller">Sega Dreamcast Controller</option>
+                    <option value="Sega Dreamcast Devkit">Sega Dreamcast Devkit</option>
+                </select>
+                <button id="search-button" class="search-button">Search</button>
+            </div>
         </header>
         
         <div id="product-list" class="product-list"></div>
@@ -22,30 +170,179 @@
                 <span class="close-btn">&times;</span>
                 <h2 id="modal-title">Add New Product</h2>
                 <form id="product-form" enctype="multipart/form-data">
-                    <label for="product_name">Product Name:</label>
-                    <input type="text" id="product_name" name="product_name" required>
+                    <div class="form-group">
+                        <label for="product_name">Product Name:</label>
+                        <input type="text" id="product_name" name="product_name" required>
+                    </div>
 
-                    <label for="product_type">Type:</label>
-                    <input type="text" id="product_type" name="product_type" required>
+                    <div class="form-group">
+                        <label for="product_type">Type:</label>
+                        <select id="product_type" name="product_type" required>
+                            <!-- Sorted Entries by Company, Arisa Vurr reference? -->
+                            <!-- Nintendo -->
+                            <option value="Nintendo NES Game">Nintendo NES Game</option>
+                            <option value="Nintendo NES Console">Nintendo NES Console</option>
+                            <option value="Nintendo NES Controller">Nintendo NES Controller</option>
+                            <option value="Nintendo NES Devkit">Nintendo NES Devkit</option>
 
-                    <label for="date_bought">Date Bought:</label>
-                    <input type="date" id="date_bought" name="date_bought" required>
+                            <option value="Nintendo Gameboy Game">Nintendo Gameboy Game</option>
+                            <option value="Nintendo Gameboy Console">Nintendo Gameboy Console</option>
+                            <option value="Nintendo Gameboy Controller">Nintendo Gameboy Controller</option>
+                            <option value="Nintendo Gameboy Devkit">Nintendo Gameboy Devkit</option>
 
-                    <label for="price_bought">Price Bought:</label>
-                    <input type="number" id="price_bought" name="price_bought" step="0.01" required>
+                            <option value="Nintendo SNES Game">Nintendo SNES Game</option>
+                            <option value="Nintendo SNES Console">Nintendo SNES Console</option>
+                            <option value="Nintendo SNES Controller">Nintendo SNES Controller</option>
+                            <option value="Nintendo SNES Devkit">Nintendo SNES Devkit</option>
 
-                    <label for="condition">Condition:</label>
-                    <input type="text" id="condition" name="condition" required>
+                            <option value="Nintendo VB Game">Nintendo Virtual Boy Game</option>
+                            <option value="Nintendo VB Console">Nintendo Virtual Boy Console</option>
+                            <option value="Nintendo VB Controller">Nintendo Virtual Boy Controller</option>
+                            <option value="Nintendo VB Devkit">Nintendo Virtual Boy Devkit</option>
 
-                    <label for="image">Image:</label>
-                    <input type="file" id="image" name="image" accept="image/*">
+                            <option value="Nintendo N64 Game">Nintendo 64 Game</option>
+                            <option value="Nintendo N64 Console">Nintendo 64 Console</option>
+                            <option value="Nintendo N64 Controller">Nintendo 64 Controller</option>
+                            <option value="Nintendo N64 Devkit">Nintendo 64 Devkit</option>
 
-                    <label for="is_sold">Mark as Sold:</label>
-                    <input type="checkbox" id="is_sold" name="is_sold">
+                            <option value="Nintendo GBC Game">Nintendo Game Boy Color Game</option>
+                            <option value="Nintendo GBC Console">Nintendo Game Boy Color Console</option>
+                            <option value="Nintendo GBC Controller">Nintendo Game Boy Color Controller</option>
+                            <option value="Nintendo GBC Devkit">Nintendo Game Boy Color Devkit</option>
+
+                            <option value="Nintendo GBA Game">Nintendo Game Boy Advance Game</option>
+                            <option value="Nintendo GBA Console">Nintendo Game Boy Advance Console</option>
+                            <option value="Nintendo GBA Controller">Nintendo Game Boy Advance Controller</option>
+                            <option value="Nintendo GBA Devkit">Nintendo Game Boy Advance Devkit</option>
+
+                            <option value="Nintendo Gamecube Game">Nintendo GameCube Game</option>
+                            <option value="Nintendo Gamecube Console">Nintendo GameCube Console</option>
+                            <option value="Nintendo Gamecube Controller">Nintendo GameCube Controller</option>
+                            <option value="Nintendo Gamecube Devkit">Nintendo GameCube Devkit</option>
+
+                            <option value="Nintendo DS Game">Nintendo DS Game</option>
+                            <option value="Nintendo DS Console">Nintendo DS Console</option>
+                            <option value="Nintendo DS Controller">Nintendo DS Controller</option>
+                            <option value="Nintendo DS Devkit">Nintendo DS Devkit</option>
+
+                            <option value="Nintendo Wii Game">Nintendo Wii Game</option>
+                            <option value="Nintendo Wii Console">Nintendo Wii Console</option>
+                            <option value="Nintendo Wii Controller">Nintendo Wii Controller</option>
+                            <option value="Nintendo Wii Devkit">Nintendo Wii Devkit</option>
+
+                            <option value="Nintendo 3DS Game">Nintendo 3DS Game</option>
+                            <option value="Nintendo 3DS Console">Nintendo 3DS Console</option>
+                            <option value="Nintendo 3DS Controller">Nintendo 3DS Controller</option>
+                            <option value="Nintendo 3DS Devkit">Nintendo 3DS Devkit</option>
+
+                            <option value="Nintendo Wii U Game">Nintendo Wii U Game</option>
+                            <option value="Nintendo Wii U Console">Nintendo Wii U Console</option>
+                            <option value="Nintendo Wii U Controller">Nintendo Wii U Controller</option>
+                            <option value="Nintendo Wii U Devkit">Nintendo Wii U Devkit</option>
+
+                            <option value="Nintendo New 3DS Game">Nintendo New 3DS Game</option>
+                            <option value="Nintendo New 3DS Console">Nintendo New 3DS Console</option>
+                            <option value="Nintendo New 3DS Controller">Nintendo New 3DS Controller</option>
+                            <option value="Nintendo New 3DS Devkit">Nintendo New 3DS Devkit</option>
+
+                            <option value="Nintendo Switch Game">Nintendo Switch Game</option>
+                            <option value="Nintendo Switch Console">Nintendo Switch Console</option>
+                            <option value="Nintendo Switch Controller">Nintendo Switch Controller</option>
+                            <option value="Nintendo Switch Devkit">Nintendo Switch Devkit</option>
+
+                            <!-- Sony -->
+                            <option value="Sony Playstation 1 Game">Sony Playstation 1 Game</option>
+                            <option value="Sony Playstation 1 Console">Sony Playstation 1 Console</option>
+                            <option value="Sony Playstation 1 Controller">Sony Playstation 1 Controller</option>
+                            <option value="Sony Playstation 1 Devkit">Sony Playstation 1 Devkit</option>
+
+                            <option value="Sony Playstation 2 Game">Sony Playstation 2 Game</option>
+                            <option value="Sony Playstation 2 Console">Sony Playstation 2 Console</option>
+                            <option value="Sony Playstation 2 Controller">Sony Playstation 2 Controller</option>
+                            <option value="Sony Playstation 2 Devkit">Sony Playstation 2 Devkit</option>
+
+                            <option value="Sony Playstation 3 Game">Sony Playstation 3 Game</option>
+                            <option value="Sony Playstation 3 Console">Sony Playstation 3 Console</option>
+                            <option value="Sony Playstation 3 Controller">Sony Playstation 3 Controller</option>
+                            <option value="Sony Playstation 3 Devkit">Sony Playstation 3 Devkit</option>
+
+                            <option value="Sony Playstation 4 Game">Sony Playstation 4 Game</option>
+                            <option value="Sony Playstation 4 Console">Sony Playstation 4 Console</option>
+                            <option value="Sony Playstation 4 Controller">Sony Playstation 4 Controller</option>
+                            <option value="Sony Playstation 4 Devkit">Sony Playstation 4 Devkit</option>
+
+                            <option value="Sony Playstation 5 Game">Sony Playstation 5 Game</option>
+                            <option value="Sony Playstation 5 Console">Sony Playstation 5 Console</option>
+                            <option value="Sony Playstation 5 Controller">Sony Playstation 5 Controller</option>
+                            <option value="Sony Playstation 5 Devkit">Sony Playstation 5 Devkit</option>
+
+                            <!-- Microsoft -->
+                            <option value="XBOX Classic Game">XBOX Classic Game</option>
+                            <option value="XBOX Classic Console">XBOX Classic Console</option>
+                            <option value="XBOX Classic Controller">XBOX Classic Controller</option>
+                            <option value="XBOX Classic Devkit">XBOX Classic Devkit</option>
+
+                            <option value="XBOX 360 Game">XBOX 360 Game</option>
+                            <option value="XBOX 360 Console">XBOX 360 Console</option>
+                            <option value="XBOX 360 Controller">XBOX 360 Controller</option>
+                            <option value="XBOX 360 Devkit">XBOX 360 Devkit</option>
+
+                            <option value="XBOX One Game">XBOX One Game</option>
+                            <option value="XBOX One Console">XBOX One Console</option>
+                            <option value="XBOX One Controller">XBOX One Controller</option>
+                            <option value="XBOX One Devkit">XBOX One Devkit</option>
+
+                            <option value="XBOX Series Game">XBOX Series Game</option>
+                            <option value="XBOX Series Console">XBOX Series Console</option>
+                            <option value="XBOX Series Controller">XBOX Series Controller</option>
+                            <option value="XBOX Series Devkit">XBOX Series Devkit</option>
+
+                            <!-- Sega -->
+                            <option value="Sega Genesis Game">Sega Genesis Game</option>
+                            <option value="Sega Genesis Console">Sega Genesis Console</option>
+                            <option value="Sega Genesis Controller">Sega Genesis Controller</option>
+                            <option value="Sega Genesis Devkit">Sega Genesis Devkit</option>
+
+                            <option value="Sega Saturn Game">Sega Saturn Game</option>
+                            <option value="Sega Saturn Console">Sega Saturn Console</option>
+                            <option value="Sega Saturn Controller">Sega Saturn Controller</option>
+                            <option value="Sega Saturn Devkit">Sega Saturn Devkit</option>
+
+                            <option value="Sega Dreamcast Game">Sega Dreamcast Game</option>
+                            <option value="Sega Dreamcast Console">Sega Dreamcast Console</option>
+                            <option value="Sega Dreamcast Controller">Sega Dreamcast Controller</option>
+                            <option value="Sega Dreamcast Devkit">Sega Dreamcast Devkit</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date_bought">Date Bought:</label>
+                        <input type="text" id="date_bought" name="date_bought" placeholder="DD/MM/YYYY" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price_bought">Price Bought:</label>
+                        <input type="number" id="price_bought" name="price_bought" step="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="condition">Condition:</label>
+                        <input type="text" id="condition" name="condition" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Image:</label>
+                        <input type="file" id="image" name="image" accept="image/*">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="is_sold">Mark as Sold:</label>
+                        <input type="checkbox" id="is_sold" name="is_sold">
+                    </div>
                     
-                    <div id="sold-fields" style="display: none;">
+                    <div id="sold-fields" class="form-group" style="display: none;">
                         <label for="date_sold">Date Sold:</label>
-                        <input type="date" id="date_sold" name="date_sold">
+                        <input type="text" id="date_sold" name="date_sold" placeholder="DD/MM/YYYY">
 
                         <label for="price_sold">Price Sold:</label>
                         <input type="number" id="price_sold" name="price_sold" step="0.01">

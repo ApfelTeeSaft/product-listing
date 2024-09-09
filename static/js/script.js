@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTitle = document.getElementById('modal-title');
     const isSoldCheckbox = document.getElementById('is_sold');
     const soldFields = document.getElementById('sold-fields');
+    const searchTypeSelect = document.getElementById('search-type');
+    const searchQueryInput = document.getElementById('search-query');
+    const searchTypeQueryDropdown = document.getElementById('search-type-query');
+    const searchButton = document.getElementById('search-button');
     let currentPage = 1;
     const itemsPerPage = 10;
     let editMode = false;
@@ -18,6 +22,27 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(data => renderProducts(data))
             .catch(error => console.error('Error fetching products:', error));
+    }
+
+    function searchProducts() {
+        const searchType = searchTypeSelect.value;
+        let searchQuery;
+
+        if (searchType === 'type') {
+            searchQuery = searchTypeQueryDropdown.value;
+        } else {
+            searchQuery = searchQueryInput.value;
+        }
+
+        if (searchQuery.trim() === '') {
+            fetchProducts();
+            return;
+        }
+
+        fetch(`/search?type=${searchType}&query=${encodeURIComponent(searchQuery)}`)
+            .then(response => response.json())
+            .then(data => renderProducts(data))
+            .catch(error => console.error('Error searching products:', error));
     }
 
     function renderProducts(products) {
@@ -37,11 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3>${product.product_name}</h3>
                 <p>Type: ${product.product_type}</p>
                 <p>Date Bought: ${product.date_bought}</p>
-                <p>Price Bought: €${product.price_bought}</p>
+                <p>Price Bought: $${product.price_bought}</p>
                 <p>Condition: ${product.condition}</p>
                 <p>Sold: ${product.is_sold ? 'Yes' : 'No'}</p>
                 ${product.is_sold ? `<p>Date Sold: ${product.date_sold}</p><p>Price Sold: $${product.price_sold}</p>` : ''}
                 <button class="edit-button" data-id="${product.id}">Edit</button>
+                <button class="delete-button" data-id="${product.id}">Delete</button>
             `;
             productList.appendChild(productItem);
         });
@@ -64,6 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 openModalForEdit(editProductId);
             });
         });
+
+        document.querySelectorAll('.delete-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = button.getAttribute('data-id');
+                if (confirm('Are you sure you want to delete this product? This action cannot be undone.')) {
+                    deleteProduct(productId);
+                }
+            });
+        });
     }
 
     addProductBtn.addEventListener('click', () => {
@@ -72,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalTitle.textContent = 'Add New Product';
         productForm.reset();
         soldFields.style.display = 'none';
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
     });
 
     closeBtn.addEventListener('click', () => {
@@ -122,11 +157,34 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         soldFields.style.display = 'none';
                     }
-                    modal.style.display = 'block';
+                    modal.style.display = 'flex';
                 }
             })
             .catch(error => console.error('Error fetching product details:', error));
     }
 
+    function deleteProduct(productId) {
+        fetch(`/products/${productId}`, {
+            method: 'DELETE'
+        })
+            .then(response => response.json())
+            .then(data => {
+                fetchProducts();
+            })
+            .catch(error => console.error('Error deleting product:', error));
+    }
+
+    searchTypeSelect.addEventListener('change', () => {
+        if (searchTypeSelect.value === 'type') {
+            searchQueryInput.style.display = 'none';
+            searchTypeQueryDropdown.style.display = 'block';
+        } else {
+            searchQueryInput.style.display = 'block';
+            searchTypeQueryDropdown.style.display = 'none';
+        }
+    });
+
     fetchProducts();
+
+    searchButton.addEventListener('click', searchProducts);
 });

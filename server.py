@@ -115,6 +115,40 @@ def get_products():
 
     return jsonify(result), 200
 
+@app.route('/products/<int:product_id>', methods=['DELETE'])
+def delete_product(product_id):
+    product = Product.query.get_or_404(product_id)
+    db.session.delete(product)
+    db.session.commit()
+    return jsonify({'message': 'Product deleted successfully!'}), 200
+
+@app.route('/search', methods=['GET'])
+def search_products():
+    search_type = request.args.get('type', 'name')
+    search_query = request.args.get('query', '').lower()
+
+    if search_type == 'type':
+        products = Product.query.filter(Product.product_type.ilike(f'%{search_query}%')).all()
+    else:
+        products = Product.query.filter(Product.product_name.ilike(f'%{search_query}%')).all()
+
+    result = []
+    for product in products:
+        result.append({
+            'id': product.id,
+            'product_name': product.product_name,
+            'product_type': product.product_type,
+            'date_bought': product.date_bought.strftime('%d/%m/%Y'),
+            'price_bought': product.price_bought,
+            'date_sold': product.date_sold.strftime('%d/%m/%Y') if product.date_sold else None,
+            'price_sold': product.price_sold,
+            'condition': product.condition,
+            'image': product.image,
+            'is_sold': product.is_sold
+        })
+
+    return jsonify(result), 200
+
 @app.route('/static/<path:path>')
 def send_static(path):
     return send_from_directory('static', path)
